@@ -1,0 +1,30 @@
+## 예제용
+## nginx라는 컨테이너(Pod)를 실행하는 kubernetes오브젝트
+## Pod에서 nginx 웹서버를 구동하고 html을 띄워주는 역할
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: html
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: html
+          configMap:
+            name: nginx-index
