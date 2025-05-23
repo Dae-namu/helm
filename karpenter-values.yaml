@@ -1,0 +1,10 @@
+serviceAccount:
+  create: false
+  name: karpenter
+
+clusterName: daenamu-test
+
+clusterEndpoint: https://B0380F1AF93F81DC6FA0F3FF14AB9F75.gr7.ap-northeast-2.eks.amazonaws.com
+
+aws:
+  defaultInstanceProfile: daenamu-test-node-group-instance-profile

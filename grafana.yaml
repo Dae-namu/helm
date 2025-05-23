@@ -1,0 +1,18 @@
+service:
+  type: ClusterIP
+
+adminUser: admin
+adminPassword: admin
+
+persistence:
+  enabled: false
+
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        url: http://prometheus-server.prometheus.svc.cluster.local
+        access: proxy
+        isDefault: true

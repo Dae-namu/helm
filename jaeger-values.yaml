@@ -1,0 +1,17 @@
+collector:
+  enabled: true
+
+query:
+  enabled: true
+
+agent:
+  enabled: false
+
+storage:
+  type: memory
+
+cassandra:
+  enabled: false
+
+service:
+  type: ClusterIP
