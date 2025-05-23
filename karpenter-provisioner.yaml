@@ -22,5 +22,4 @@ spec:
       karpenter.sh/discovery: daenamu-test
     securityGroupSelector:
       kubernetes.io/cluster/daenamu-test: "owned"
-      vpc-id: "vpc-07c3e0616d0f52f5a"
     instanceProfile: daenamu-test-node-group-instance-profile
