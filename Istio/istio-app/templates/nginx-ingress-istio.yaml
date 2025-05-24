@@ -1,0 +1,20 @@
+# Istio기반의 Ingress설정, 외부 트래픽을 내부 nginx-service로 라우팅
+## ALB → Ingress Gateway → VirtualService → nginx-service 흐름을 만듦
+
+
+
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: nginx-gateway
+spec:
+  selector:
+    app: istio-ingress 
+    istio: ingress  # 이건 service/istio-ingress의 selector에 맞춰야 함
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "*"

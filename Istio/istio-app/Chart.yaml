@@ -1,0 +1,5 @@
+# istio-app/Chart.yaml
+apiVersion: v2
+name: istio-app
+version: 0.1.0
+description: App Gateway, VirtualService, Nginx 포함

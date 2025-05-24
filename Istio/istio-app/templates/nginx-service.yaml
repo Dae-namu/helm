@@ -1,0 +1,16 @@
+## Pod와 통신하기 위한 고정 DNS이름 부여
+## 내부적으로 app = nginx라벨을 가진 Pod에게 트래픽 전달
+## nginx Pod를 클러스터 내부에서 안정적으로 호출할 수 있게 만드는 중간자
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: ClusterIP    # ✅ 반드시 ClusterIP (LoadBalancer나 NodePort 안됨)
